@@ -23,7 +23,7 @@
 <body>
     <audio id="background-music" src="" autoplay loop></audio>
     <img id="nyan-cat" class="nyan-cat" src="彩虹猫1.png" alt="Nyan Cat">
-    <button id="play-button">Play Audio</button>
+    <button id="play-button">点击开始</button>
 
     <script>
         const nyanCat = document.getElementById('nyan-cat');
@@ -42,7 +42,7 @@
 
         playButton.addEventListener('click', () => {
             const audio = document.getElementById('background-music');
-            audio.src = 'kdgzs.mp3'; // 将音频文件路径赋值给src属性
+            audio.src = '彩虹猫.mp3'; // 将音频文件路径赋值给src属性
             audio.play(); // 开始播放音频文件
 
             // 开始切换图片
