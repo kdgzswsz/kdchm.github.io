@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>彩虹猫动画</title>
+    <style>
+        body {
+            background-color: #0000CD; /* 深蓝色背景 */
+            margin: 0;
+            overflow: hidden;
+        }
+        .nyan-cat {
+            position: absolute;
+            top: 30%; /* 设置初始位置在左边缘偏上 */
+            left: 0.1%; /* 设置初始位置在左边缘 */
+            transform: translate(0, -50%); /* 设置初始位置在左边缘偏上 */
+            width: 400ppx; /* 设置初始大小 */
+            height:380px; /* 设置初始大小 */
+        }
+    </style>
+</head>
+<body>
+    <audio id="background-music" src="" autoplay loop></audio>
+    <img id="nyan-cat" class="nyan-cat" src="彩虹猫1.png" alt="Nyan Cat">
+    <button id="play-button">Play Audio</button>
+
+    <script>
+        const nyanCat = document.getElementById('nyan-cat');
+        const images = [];
+        for (let i = 1; i <= 12; i++) {
+            images.push(`彩虹猫${i}.png`);
+        }
+        let index = 0;
+
+        function changeImage() {
+            nyanCat.src = images[index];
+            index = (index + 1) % images.length;
+        }
+
+        const playButton = document.getElementById('play-button');
+
+        playButton.addEventListener('click', () => {
+            const audio = document.getElementById('background-music');
+            audio.src = 'kdgzs.mp3'; // 将音频文件路径赋值给src属性
+            audio.play(); // 开始播放音频文件
+
+            // 开始切换图片
+            setInterval(changeImage, 100); // 每100毫秒切换一次图片
+
+            // 隐藏按钮
+            playButton.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
